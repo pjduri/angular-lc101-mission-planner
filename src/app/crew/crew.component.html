@@ -27,5 +27,5 @@
         </li>
     </ol>
     <!-- Add an img tag here to display astronaut photos. Got too sleepy here.-->
-    <img *ngIf = 'hoverPresent' src = {{chosenPhoto}}>
+    <img *ngIf = 'hoverPresent' [src] = 'chosenPhoto'>
 </div>
