@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class CrewComponent implements OnInit {
 
   inCrew: boolean = false;
+  hoverPresent: boolean = false
   crew: object[] = [];
+  chosenPhoto: string = ''
 
   candidates: object[] = [
     {name: "Sally Ride", photo: 'https://handlers.education.launchcode.org/static/images/sally-ride.jpg'},
@@ -25,5 +27,14 @@ export class CrewComponent implements OnInit {
   ngOnInit() { }
 
   // Code the 'addCrewMember' function here:
-
+  addCrewMember (crewCandidate: object) {
+    if (!this.crew.includes(crewCandidate) && this.crew.length < 3) {
+      this.crew.push(crewCandidate)
+      crewCandidate['inCrew'] = true
+    } else if (this.crew.includes(crewCandidate)) {
+      this.crew.splice(this.crew.indexOf(crewCandidate), 1)
+      crewCandidate['inCrew'] = false
+    }
+  }
+  
 }
